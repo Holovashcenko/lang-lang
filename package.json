@@ -1,0 +1,16 @@
+{
+  "name": "lang-lang",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:server": "npm run start:dev --prefix server",
+    "start:client": "npm run dev --prefix client",
+    "start": "concurrently npm:start:*"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^8.0.1"
+  }
+}

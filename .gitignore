@@ -1,0 +1,45 @@
+# node_modules
+node_modules/
+
+# client/node_modules
+/client/node_modules/
+
+# server/node_modules
+/server/node_modules/
+
+# .next/ build output directory for Next.js
+/client/.next/
+
+# /dist build output directory for Nest.js
+/server/dist/
+
+# local environment variables
+/client/.env.local
+/server/.env.local
+
+# misc
+.DS_Store
+.idea/
+.vscode/
+
+# logs
+*.log
+
+# dependencies
+/client/yarn.lock
+/server/yarn.lock
+
+# test coverage reports
+/client/coverage/
+/server/coverage/
+
+# Vercel deployment configuration
+now.json
+
+# Firebase configuration
+/client/firebase.json
+/server/firebase.json
+
+# Firebase service account credentials
+/client/serviceAccountKey.json
+/server/serviceAccountKey.json
