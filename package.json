@@ -1,13 +1,15 @@
 {
   "name": "lang-lang",
   "version": "1.0.0",
+  "workspaces": [
+    "server",
+    "client"
+  ],
   "scripts": {
     "start:server": "npm run start:dev --prefix server",
     "start:client": "npm run dev --prefix client",
     "start": "concurrently npm:start:*",
-    "lint:server": "cd server && npm run lint",
-    "lint:client": "cd client && npm run lint",
-    "lint": "npm run lint:server && npm run lint:client"
+    "lint": "npm run lint:js --workspaces --if-present -- --max-warnings=0"
   },
   "license": "ISC",
   "dependencies": {
