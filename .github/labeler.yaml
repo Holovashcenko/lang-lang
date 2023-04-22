@@ -1,0 +1,23 @@
+root: '*'
+
+workflows: '.github/**/*'
+
+backend:
+  - any:
+      - 'server/**/*'
+      - '!server/.env.example'
+
+frontend:
+  - any:
+      - 'client/**/*'
+      - '!client/.env.example'
+
+environment:
+  - 'server/.env.example'
+  - 'client/.env.example'
+  - 'lambdas/.env.example'
+
+dependencies:
+  - 'server/package.json'
+  - 'client/package.json'
+  - 'package.json'
