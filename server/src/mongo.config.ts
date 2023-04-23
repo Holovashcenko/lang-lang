@@ -5,6 +5,6 @@ import { config } from 'dotenv';
 config();
 
 @Module({
-  imports: [MongooseModule.forRoot(process.env.MONGO_URI)],
+  imports: [MongooseModule.forRoot(process.env.MONGO_URL)],
 })
 export class DatabaseModule {}
