@@ -1,4 +1,4 @@
-import { Body, Controller, Post, UseGuards, Req, Res } from '@nestjs/common';
+import { Body, Controller, Post, UseGuards, Req } from '@nestjs/common';
 import { UsersService } from 'src/users/users.service';
 import { AuthService } from './auth.service';
 import { ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
@@ -9,7 +9,6 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { LoginDto } from './dto/login.dto';
 import { CreateUserResponseDto } from './dto/create-user-response.dto';
 import { LogoutDto } from './dto/logout.dto';
-import { Response } from 'express';
 
 @Controller('auth')
 export class AuthController {
@@ -38,10 +37,12 @@ export class AuthController {
     };
     const token = await this.jwtService.sign(payload);
     return {
-      id: user.id,
-      email: user.email,
-      username: user.username,
-      role: user.role,
+      user: {
+        email: user.email,
+        role: user.role,
+        id: user.id,
+        username: user.username,
+      },
       token,
     };
   }
@@ -66,8 +67,7 @@ export class AuthController {
     description: 'User was logged out',
     type: LogoutDto,
   })
-  async logout(@Res({ passthrough: true }) response: Response) {
-    response.clearCookie('jwt');
+  async logout() {
     return {
       code: 200,
       status: 'success',
